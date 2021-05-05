@@ -120,7 +120,7 @@ class _menuState extends State<menu> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => device()));
+                                    builder: (context) => MyDevice()));
                           },
                         ),
                         Divider(),
