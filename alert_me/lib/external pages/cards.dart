@@ -16,7 +16,7 @@ Widget cardlist(context) {
       children: <Widget>[
         Card(
           margin: const EdgeInsets.symmetric(horizontal: 8),
-          color: Colors.white,
+          color: Colors.pink,
           shape: roundedRectangleBorder,
           child: Column(
             children: <Widget>[
@@ -24,10 +24,10 @@ Widget cardlist(context) {
                 leading: Icon(
                   Icons.router,
                   size: 60,
-                  color: Colors.indigo,
+                  color: Colors.white,
                 ),
                 title: Text('Add New Device.',
-                    style: TextStyle(color: Colors.black, fontSize: 20)),
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -36,10 +36,14 @@ Widget cardlist(context) {
                     onPressed: () {
                       CreateAlartdialog(context);
                     },
-                    icon: Icon(Icons.add, size: 46),
+                    icon: Icon(
+                      Icons.add,
+                      size: 46,
+                      color: Colors.white,
+                    ),
                     label: Text(
                       "Add Device",
-                      style: TextStyle(fontSize: 23),
+                      style: TextStyle(fontSize: 23, color: Colors.white),
                     ),
                   ),
                 ],
@@ -49,7 +53,7 @@ Widget cardlist(context) {
         ),
         Card(
           margin: const EdgeInsets.symmetric(horizontal: 8),
-          color: Colors.white,
+          color: Colors.pink,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(8.0),
           ),
@@ -59,13 +63,13 @@ Widget cardlist(context) {
                 leading: Icon(
                   Icons.router,
                   size: 50,
-                  color: Colors.green,
+                  color: Colors.white,
                 ),
                 title: Text('Active Device',
-                    style: TextStyle(color: Colors.black, fontSize: 20)),
+                    style: TextStyle(color: Colors.white, fontSize: 20)),
                 subtitle: Text('Number of online device',
                     style: TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontSize: 15,
                         fontStyle: FontStyle.italic)),
               ),
@@ -73,7 +77,7 @@ Widget cardlist(context) {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   new Text('02',
-                      style: TextStyle(color: Colors.black, fontSize: 32)),
+                      style: TextStyle(color: Colors.white, fontSize: 32)),
                 ],
               )
             ],

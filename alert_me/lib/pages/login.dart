@@ -61,7 +61,7 @@ class _loginState extends State<login> {
                     alignment: Alignment(0, -0.8),
                     child: Image.asset(
                       "images/login.png",
-                      height: 250,
+                      height: 200,
                       width: 300,
                     ), //main image
                   ),
@@ -79,11 +79,14 @@ class _loginState extends State<login> {
                 Padding(
                   padding: const EdgeInsets.all(11.0),
                   child: TextFormField(
+                    cursorColor: Theme.of(context).canvasColor,
                     maxLength: 50,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        hintText: "Email"),
+                      labelText: 'Enter Email to login',
+                      labelStyle: TextStyle(
+                        color: Colors.green.shade700,
+                      ),
+                    ),
                     controller: email,
                     validator: (val) {
                       if (val.isEmpty) {
@@ -100,22 +103,19 @@ class _loginState extends State<login> {
                 Padding(
                   padding: const EdgeInsets.all(11.0),
                   child: TextFormField(
-                    maxLength: 15,
+                    cursorColor: Theme.of(context).canvasColor,
+                    maxLength: 12,
                     obscureText: true,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        hintText: "Password"),
+                      labelText: 'Enter Password to login',
+                      labelStyle: TextStyle(
+                        color: Colors.green.shade700,
+                      ),
+                    ),
                     controller: password,
-                    validator: (val) {
-                      if (val.isEmpty) {
-                        return 'Password cannot be empty';
-                      }
-                      return null;
-                    },
-                    onSaved: (val) {
-                      _pass = val;
-                    },
+                    validator: (val) =>
+                        val.length < 08 ? 'Wrong Password' : null,
+                    onSaved: (val) => _pass = val,
                   ),
                 ),
                 //Buttton

@@ -14,15 +14,15 @@ class _menuState extends State<menu> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.amber[600],
+        backgroundColor: Colors.indigo[600],
         child: Icon(
           Icons.info,
-          size: 40,
+          size: 25,
           color: Colors.white,
         ),
         onPressed: () {},
       ),
-      backgroundColor: Colors.white70,
+      backgroundColor: Colors.white,
       drawer: Drawer(
         child: ListView(
           children: [
@@ -64,25 +64,73 @@ class _menuState extends State<menu> {
                     context, MaterialPageRoute(builder: (context) => login()));
               },
             ),
+            SizedBox(
+              height: 80,
+            ),
+            ListTile(
+              leading: Icon(Icons.verified_user_outlined),
+              title: Text(
+                "Version 1.0",
+                style: TextStyle(fontSize: 22),
+              ),
+            ),
           ],
         ),
       ),
       appBar: AppBar(
           backgroundColor: Colors.indigo,
+          elevation: 6,
+          shape: ContinuousRectangleBorder(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(90.0),
+            ),
+          ),
           title: Image.asset(
-            "images/titile.png",
-            height: 150.0,
-            width: 151.0,
+            "images/titile1.png",
+            height: 80.0,
+            width: 160.0,
           )),
       body: SingleChildScrollView(
         child: Container(
           child: Column(
             children: [
-              Center(
+              SizedBox(
+                height: 20,
+              ),
+              Container(
+                height: 170,
+                width: 340,
+                // width: 140,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                  image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage('images/titile1.jpg')),
+                ),
                 child: Container(
-                  color: Colors.amber[600],
-                  width: 500.0,
-                  height: 40.0,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    gradient: LinearGradient(
+                        begin: Alignment.bottomRight,
+                        stops: [
+                          0.3,
+                          0.9
+                        ],
+                        colors: [
+                          Colors.black.withOpacity(.8),
+                          Colors.black.withOpacity(.2)
+                        ]),
+                  ),
+                  child: Align(
+                    alignment: Alignment.bottomLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.all(15.0),
+                      child: Text(
+                        'News Feed',
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                    ),
+                  ),
                 ),
               ),
               SizedBox(
@@ -94,28 +142,37 @@ class _menuState extends State<menu> {
               ),
               Card(
                 margin: const EdgeInsets.symmetric(horizontal: 10),
-                color: Colors.white,
+                color: Colors.pink[400],
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 child: Column(
                   children: <Widget>[
                     const ListTile(
-                      leading: Icon(Icons.router, size: 50),
+                      leading: Icon(
+                        Icons.router,
+                        size: 50,
+                        color: Colors.white,
+                      ),
                       title: Text('My Device List',
-                          style: TextStyle(color: Colors.black, fontSize: 20)),
+                          style: TextStyle(color: Colors.white, fontSize: 20)),
                       subtitle: Text('Device status....',
                           style: TextStyle(
-                              color: Colors.black,
+                              color: Colors.white,
                               fontSize: 15,
                               fontStyle: FontStyle.italic)),
                     ),
                     Column(
                       children: <Widget>[
                         ListTile(
-                          leading: Icon(Icons.router),
-                          title: Text('Devices 01'),
-                          subtitle: Text('online'),
+                          leading: Icon(
+                            Icons.router,
+                            color: Colors.white,
+                          ),
+                          title: Text('Devices 01',
+                              style: TextStyle(color: Colors.white)),
+                          subtitle: Text('online',
+                              style: TextStyle(color: Colors.white)),
                           onTap: () {
                             Navigator.push(
                                 context,
@@ -125,9 +182,16 @@ class _menuState extends State<menu> {
                         ),
                         Divider(),
                         ListTile(
-                          leading: Icon(Icons.router),
-                          title: Text('Devices 02'),
-                          subtitle: Text('online'),
+                          leading: Icon(
+                            Icons.router,
+                            color: Colors.white,
+                          ),
+                          title: Text(
+                            'Devices 02',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                          subtitle: Text('online',
+                              style: TextStyle(color: Colors.white)),
                           onTap: () {},
                         ),
                       ],

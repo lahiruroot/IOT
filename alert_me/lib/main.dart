@@ -47,12 +47,12 @@ class _SplashState extends State<Splash> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white,
+        color: Colors.blue,
         height: double.infinity,
         width: double.infinity,
         child: Center(
           child: Image.asset(
-            'images/titile.png',
+            'images/titile1.png',
             height: 200,
             width: 400,
           ),

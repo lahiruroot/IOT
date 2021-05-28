@@ -48,7 +48,7 @@ class _singupState extends State<singup> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.indigoAccent,
+          backgroundColor: Colors.deepOrange,
           title: Image.asset(
             "images/titile.png",
             height: 150.0,
@@ -56,27 +56,29 @@ class _singupState extends State<singup> {
           )),
       body: SingleChildScrollView(
         child: Container(
-          padding: EdgeInsets.all(20),
           child: Form(
             key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Align(
-                    alignment: Alignment(0, -0.8),
-                    child: Image.asset("images/reg.png"), //main image
-                  ),
+                SizedBox(
+                  height: 50,
                 ),
+                // Padding(
+                //   padding: EdgeInsets.all(10),
+                //   child: Align(
+                //     alignment: Alignment(0, -0.8),
+                //     child: Image.asset("images/reg.png"), //main image
+                //   ),
+                // ),
 
                 Padding(
                   padding: EdgeInsets.all(24),
                   child: Align(
                     alignment: Alignment(0, -0.8),
                     child: Text(
-                      "Register with us",
+                      "Create Your Account",
                       style: TextStyle(fontSize: 28),
                     ),
                   ),
@@ -87,10 +89,10 @@ class _singupState extends State<singup> {
                   child: TextFormField(
                     maxLength: 50,
                     decoration: InputDecoration(
-                      hintText: "Your Name",
-                      errorMaxLines: 1,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0)),
+                      labelText: 'Enter Your Name',
+                      labelStyle: TextStyle(
+                        color: Colors.blue.shade900,
+                      ),
                     ),
                     controller: name,
                     validator: (val) {
@@ -110,19 +112,15 @@ class _singupState extends State<singup> {
                   child: TextFormField(
                     maxLength: 10,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        hintText: "Phone number"),
+                      labelText: 'Enter Phone number',
+                      labelStyle: TextStyle(
+                        color: Colors.blue.shade900,
+                      ),
+                    ),
                     controller: phno,
-                    validator: (val) {
-                      if (val.isEmpty) {
-                        return 'Phone number cannot be empty';
-                      }
-                      return null;
-                    },
-                    onSaved: (val) {
-                      _phno = val;
-                    },
+                    validator: (val) =>
+                        val.length < 10 ? 'Incorrect phone number' : null,
+                    onSaved: (val) => _pass = val,
                   ),
                 ),
 
@@ -132,9 +130,11 @@ class _singupState extends State<singup> {
                   child: TextFormField(
                     maxLength: 50,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        hintText: "Email"),
+                      labelText: 'Enter your E-mail',
+                      labelStyle: TextStyle(
+                        color: Colors.blue.shade900,
+                      ),
+                    ),
                     controller: email,
                     validator: (val) {
                       if (val.isEmpty) {
@@ -151,22 +151,19 @@ class _singupState extends State<singup> {
                 Padding(
                   padding: const EdgeInsets.all(11.0),
                   child: TextFormField(
-                    maxLength: 15,
+                    cursorColor: Theme.of(context).canvasColor,
+                    maxLength: 12,
                     obscureText: true,
                     decoration: InputDecoration(
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(20.0)),
-                        hintText: "Password"),
+                      labelText: 'Enter Password',
+                      labelStyle: TextStyle(
+                        color: Colors.blue.shade900,
+                      ),
+                    ),
                     controller: password,
-                    validator: (val) {
-                      if (val.isEmpty) {
-                        return 'Password cannot be empty';
-                      }
-                      return null;
-                    },
-                    onSaved: (val) {
-                      _pass = val;
-                    },
+                    validator: (val) =>
+                        val.length < 08 ? 'Password too short' : null,
+                    onSaved: (val) => _pass = val,
                   ),
                 ),
                 ElevatedButton(
@@ -180,6 +177,7 @@ class _singupState extends State<singup> {
               ],
             ),
           ),
+          // padding: EdgeInsets.all(20),
         ),
       ),
     );
