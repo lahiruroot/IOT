@@ -203,31 +203,47 @@ class _SetTimeState extends State<SetTime> {
                               onSaved: (val) {
                                 _date = val;
                               },
-                            )
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            Container(
+                              height: 40,
+                              width: 5,
+                              child: MaterialButton(
+                                color: Colors.pink,
+                                onPressed: () async {
+                                  if (_formKey.currentState.validate()) {
+                                    setTimer();
+                                    ScaffoldMessenger.of(context)
+                                        .showSnackBar(SnackBar(
+                                      backgroundColor: Colors.green.shade700,
+                                      content: Text(
+                                        'Timer set successfully',
+                                        style: TextStyle(
+                                          fontSize: 18,
+                                        ),
+                                      ),
+                                      action: SnackBarAction(
+                                        label: 'OK',
+                                        textColor: Colors.white,
+                                        onPressed: () {
+                                          clearText();
+                                        },
+                                      ),
+                                    ));
+                                  }
+                                },
+                                child: Text(
+                                  'Set timer',
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white),
+                                ),
+                              ),
+                            ),
                           ],
                         ),
                       ),
-                      MaterialButton(onPressed: () async {
-                        if (_formKey.currentState.validate()) {
-                          setTimer();
-                          ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-                            backgroundColor: Colors.green.shade700,
-                            content: Text(
-                              'Timer set successfully',
-                              style: TextStyle(
-                                fontSize: 18,
-                              ),
-                            ),
-                            action: SnackBarAction(
-                              label: 'OK',
-                              textColor: Colors.white,
-                              onPressed: () {
-                                clearText();
-                              },
-                            ),
-                          ));
-                        }
-                      })
                     ],
                   ),
                 ),
