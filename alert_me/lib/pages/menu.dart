@@ -1,5 +1,6 @@
 import 'package:alert_me/external%20pages/device.dart';
 import 'package:alert_me/pages/login.dart';
+import 'package:alert_me/pages/stet_time.dart';
 import 'package:flutter/material.dart';
 import 'package:alert_me/external pages/cards.dart' as Cards;
 import 'package:firebase_auth/firebase_auth.dart';
@@ -16,11 +17,14 @@ class _menuState extends State<menu> {
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.indigo[600],
         child: Icon(
-          Icons.info,
+          Icons.timer,
           size: 25,
           color: Colors.white,
         ),
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => SetTime()));
+        },
       ),
       backgroundColor: Colors.white,
       drawer: Drawer(
