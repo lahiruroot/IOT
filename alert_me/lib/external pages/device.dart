@@ -70,6 +70,7 @@ class _MyDeviceState extends State<MyDevice> {
                 itemCount: fd.length,
                 itemBuilder: (context, index) {
                   return Card(
+                    color: Colors.blueAccent,
                     child: Container(
                       padding: EdgeInsets.all(20.0),
                       child: Column(
@@ -80,11 +81,13 @@ class _MyDeviceState extends State<MyDevice> {
                             children: [
                               Text(
                                 "Temp: ${fd[index].temp}",
-                                style: TextStyle(fontSize: 15.0),
+                                style: TextStyle(
+                                    fontSize: 19, color: Colors.white),
                               ),
                               Text(
                                 "Humidity: ${fd[index].h}",
-                                style: TextStyle(fontSize: 15.0),
+                                style: TextStyle(
+                                    fontSize: 19, color: Colors.white),
                               ),
                             ],
                           ),
@@ -94,11 +97,13 @@ class _MyDeviceState extends State<MyDevice> {
                             children: [
                               Text(
                                 "Motion: ${fd[index].m}",
-                                style: TextStyle(fontSize: 15.0),
+                                style: TextStyle(
+                                    fontSize: 19, color: Colors.white),
                               ),
                               Text(
                                 "Time: ${fd[index].t}",
-                                style: TextStyle(fontSize: 15.0),
+                                style: TextStyle(
+                                    fontSize: 19, color: Colors.white),
                               ),
                             ],
                           )
