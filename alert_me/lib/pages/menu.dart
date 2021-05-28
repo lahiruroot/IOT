@@ -27,22 +27,23 @@ class _menuState extends State<menu> {
         child: ListView(
           children: [
             DrawerHeader(
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: AssetImage(
-                          'images/titile.png')), //drawer image getting
-                ),
-                child: Container(
-                    height: 20,
-                    width: 20,
-                    alignment: Alignment.topLeft,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage('images/titile.png')),
-                    ))),
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image:
+                        AssetImage('images/titile.png')), //drawer image getting
+              ),
+              // child: Container(
+              //     height: 20,
+              //     width: 20,
+              //     alignment: Alignment.topLeft,
+              //     decoration: BoxDecoration(
+              //       shape: BoxShape.circle,
+              //       image: DecorationImage(
+              //           fit: BoxFit.cover,
+              //           image: AssetImage('images/titile.png')),
+              //     ))
+            ),
             ListTile(
                 leading: Icon(Icons.person),
                 title: Text("Profile"),
