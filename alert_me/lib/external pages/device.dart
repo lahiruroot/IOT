@@ -55,8 +55,19 @@ class _MyDeviceState extends State<MyDevice> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Hello world"),
-      ),
+          backgroundColor: Colors.indigo,
+          elevation: 6,
+          shape: ContinuousRectangleBorder(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(90.0),
+            ),
+          ),
+          title: Image.asset(
+            "images/titile1.png",
+            height: 80.0,
+            width: 160.0,
+          )),
+
       body: FutureBuilder<List<Devide>>(
         future: fetchPhotos(http.Client()),
         builder: (context, snapshot) {

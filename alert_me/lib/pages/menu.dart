@@ -105,7 +105,7 @@ class _menuState extends State<menu> {
                   borderRadius: BorderRadius.circular(20),
                   image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage('images/titile1.jpg')),
+                      image: AssetImage('images/titile.png')),
                 ),
                 child: Container(
                   decoration: BoxDecoration(
@@ -117,8 +117,8 @@ class _menuState extends State<menu> {
                           0.9
                         ],
                         colors: [
-                          Colors.black.withOpacity(.8),
-                          Colors.black.withOpacity(.2)
+                          Colors.black87.withOpacity(.3),
+                          Colors.black87.withOpacity(.1)
                         ]),
                   ),
                   child: Align(
@@ -126,7 +126,7 @@ class _menuState extends State<menu> {
                     child: Padding(
                       padding: const EdgeInsets.all(15.0),
                       child: Text(
-                        'News Feed',
+                        '',
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ),
