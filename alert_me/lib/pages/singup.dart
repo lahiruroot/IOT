@@ -48,9 +48,9 @@ class _singupState extends State<singup> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-          backgroundColor: Colors.deepOrange,
+          backgroundColor: Colors.indigo,
           title: Image.asset(
-            "images/titile.png",
+            "images/titile1.png",
             height: 150.0,
             width: 151.0,
           )),

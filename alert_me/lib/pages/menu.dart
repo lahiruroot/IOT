@@ -29,10 +29,20 @@ class _menuState extends State<menu> {
             DrawerHeader(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: NetworkImage(
-                          "https://picsum.photos/id/1/600/300")), //drawer image getting
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                          'images/titile.png')), //drawer image getting
                 ),
-                child: Text("data")),
+                child: Container(
+                    height: 20,
+                    width: 20,
+                    alignment: Alignment.topLeft,
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: AssetImage('images/titile.png')),
+                    ))),
             ListTile(
                 leading: Icon(Icons.person),
                 title: Text("Profile"),
