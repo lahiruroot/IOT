@@ -134,7 +134,7 @@ class _ProfileState extends State<Profile> {
                                               .collection('users')
                                               .doc(userID)
                                               .update({
-                                            'User': name,
+                                            'name': name,
                                           }).then((value) {
                                             ScaffoldMessenger.of(context)
                                                 .showSnackBar(SnackBar(
@@ -168,109 +168,109 @@ class _ProfileState extends State<Profile> {
             SizedBox(
               height: 3.0,
             ),
-            Container(
-              decoration: BoxDecoration(color: Colors.white, boxShadow: [
-                BoxShadow(
-                    color: Colors.grey.withOpacity(0.8),
-                    spreadRadius: 5,
-                    blurRadius: 7,
-                    offset: Offset(0, 3))
-              ]),
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 2.0, horizontal: 10.0),
-                          child: Text(
-                            'Phone Number',
-                            style: TextStyle(fontSize: 18),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(
-                              vertical: 1.0, horizontal: 10.0),
-                          child: Text(
-                            phno,
-                            style: TextStyle(
-                                fontSize: 23, fontStyle: FontStyle.italic),
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  TextButton(
-                      onPressed: () {
-                        showDialog(
-                            context: context,
-                            builder: (BuildContext context) => AlertDialog(
-                                  title: const Text(
-                                    'Edit Phone Number',
-                                    style: TextStyle(fontSize: 20),
-                                  ),
-                                  content: Container(
-                                    child: TextField(
-                                      controller: _Phono,
-                                      onChanged: (value) {
-                                        phno = value;
-                                      },
-                                      decoration: InputDecoration(
-                                          border: OutlineInputBorder(),
-                                          labelText: 'Phone Number'),
-                                    ),
-                                  ),
-                                  actions: [
-                                    TextButton(
-                                      onPressed: () {
-                                        if (_Phono.text.isEmpty) {
-                                          ScaffoldMessenger.of(context)
-                                              .showSnackBar(SnackBar(
-                                            content: Text(
-                                                'Phone Numbe Cannot be empty'),
-                                            action: SnackBarAction(
-                                              label: 'ok',
-                                              onPressed: () {},
-                                            ),
-                                          ));
-                                        } else {
-                                          FirebaseFirestore.instance
-                                              .collection('Phone Number')
-                                              .doc(userID)
-                                              .update({
-                                            'Phone Number': phno,
-                                          }).then((value) {
-                                            ScaffoldMessenger.of(context)
-                                                .showSnackBar(SnackBar(
-                                              content: Text(
-                                                  'Phone Number changed Successfull'),
-                                              action: SnackBarAction(
-                                                label: 'ok',
-                                                onPressed: () {},
-                                              ),
-                                            ));
-                                            getUserDetails();
-                                            Navigator.pop(context);
-                                          });
-                                        }
-                                      },
-                                      child: const Text('Change'),
-                                    ),
-                                    TextButton(
-                                      onPressed: () => Navigator.pop(context),
-                                      child: const Text(
-                                        'Dismiss',
-                                      ),
-                                    ),
-                                  ],
-                                ));
-                      },
-                      child: Text('Change')),
-                ],
-              ),
-            ),
+            // Container(
+            //   decoration: BoxDecoration(color: Colors.white, boxShadow: [
+            //     BoxShadow(
+            //         color: Colors.grey.withOpacity(0.8),
+            //         spreadRadius: 5,
+            //         blurRadius: 7,
+            //         offset: Offset(0, 3))
+            //   ]),
+            //   child: Row(
+            //     children: [
+            //       Expanded(
+            //         child: Column(
+            //           crossAxisAlignment: CrossAxisAlignment.start,
+            //           children: [
+            //             Padding(
+            //               padding: const EdgeInsets.symmetric(
+            //                   vertical: 2.0, horizontal: 10.0),
+            //               child: Text(
+            //                 'Phone Number',
+            //                 style: TextStyle(fontSize: 18),
+            //               ),
+            //             ),
+            //             Padding(
+            //               padding: const EdgeInsets.symmetric(
+            //                   vertical: 1.0, horizontal: 10.0),
+            //               child: Text(
+            //                 phno,
+            //                 style: TextStyle(
+            //                     fontSize: 23, fontStyle: FontStyle.italic),
+            //               ),
+            //             )
+            //           ],
+            //         ),
+            //       ),
+            //       TextButton(
+            //           onPressed: () {
+            //             showDialog(
+            //                 context: context,
+            //                 builder: (BuildContext context) => AlertDialog(
+            //                       title: const Text(
+            //                         'Edit Phone Number',
+            //                         style: TextStyle(fontSize: 20),
+            //                       ),
+            //                       content: Container(
+            //                         child: TextField(
+            //                           controller: _Phono,
+            //                           onChanged: (value) {
+            //                             phno = value;
+            //                           },
+            //                           decoration: InputDecoration(
+            //                               border: OutlineInputBorder(),
+            //                               labelText: 'Phone Number'),
+            //                         ),
+            //                       ),
+            //                       actions: [
+            //                         TextButton(
+            //                           onPressed: () {
+            //                             if (_Phono.text.isEmpty) {
+            //                               ScaffoldMessenger.of(context)
+            //                                   .showSnackBar(SnackBar(
+            //                                 content: Text(
+            //                                     'Phone Number Cannot be empty'),
+            //                                 action: SnackBarAction(
+            //                                   label: 'ok',
+            //                                   onPressed: () {},
+            //                                 ),
+            //                               ));
+            //                             } else {
+            //                               FirebaseFirestore.instance
+            //                                   .collection('Phone Number')
+            //                                   .doc(userID)
+            //                                   .update({
+            //                                 'Phone Number': phno,
+            //                               }).then((value) {
+            //                                 ScaffoldMessenger.of(context)
+            //                                     .showSnackBar(SnackBar(
+            //                                   content: Text(
+            //                                       'Phone Number changed Successfull'),
+            //                                   action: SnackBarAction(
+            //                                     label: 'ok',
+            //                                     onPressed: () {},
+            //                                   ),
+            //                                 ));
+            //                                 getUserDetails();
+            //                                 Navigator.pop(context);
+            //                               });
+            //                             }
+            //                           },
+            //                           child: const Text('Change'),
+            //                         ),
+            //                         TextButton(
+            //                           onPressed: () => Navigator.pop(context),
+            //                           child: const Text(
+            //                             'Dismiss',
+            //                           ),
+            //                         ),
+            //                       ],
+            //                     ));
+            //           },
+            //           child: Text('Change')),
+            //     ],
+            //   ),
+            // ),
             SizedBox(
               height: 3.0,
             ),
