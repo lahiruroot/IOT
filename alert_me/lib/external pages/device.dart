@@ -7,22 +7,22 @@ import 'package:http/http.dart' as http;
 
 Future<List<Devide>> fetchPhotos(http.Client client) async {
   final response =
-      await client.get(Uri.parse('https://nadun.smartqrlite.shop/json.php'));
+      await client.get(Uri.parse('https://iotapplahiru.herokuapp.com'));
   // print(response);
   return compute(parsePhotos, response.body);
 }
 
 // A function that converts a response body into a List<Photo>.
 List<Devide> parsePhotos(String responseBody) {
-  // List fd = [];
-  // Map<String, dynamic> x = jsonDecode(responseBody);
-  // // print(x.keys);
-  // x.forEach((key, value) {
-  //   // print(key);
-  //   // print(value);
-  //   fd.add(value);
-  // });
-  final parsed = jsonDecode(responseBody).cast<Map<String, dynamic>>();
+  List fd = [];
+  Map<String, dynamic> x = jsonDecode(responseBody);
+  // print(x.keys);
+  x.forEach((key, value) {
+    // print(key);
+    // print(value);
+    fd.add(value);
+  });
+  final parsed = fd.cast<Map<String, dynamic>>();
   // print(parsed);
   return parsed.map<Devide>((json) => Devide.fromJson(json)).toList();
 }
@@ -37,10 +37,10 @@ class Devide {
 
   factory Devide.fromJson(Map<String, dynamic> json) {
     return Devide(
-      temp: json['value1'] as String,
-      h: json['value2'] as String,
-      m: json['value3'] as String,
-      t: json['reading_time'] as String,
+      temp: json['temp'] as String,
+      h: json['h'] as String,
+      m: json['m'] as String,
+      t: json['time'] as String,
     );
   }
 }
@@ -91,6 +91,17 @@ class _MyDeviceState extends State<MyDevice> {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
+                                "${fd[index].t}",
+                                style: TextStyle(
+                                    fontSize: 19, color: Colors.white),
+                              ),
+                            ],
+                          ),
+                          Divider(),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Text(
                                 "Temp: ${fd[index].temp}",
                                 style: TextStyle(
                                     fontSize: 19, color: Colors.white),
@@ -106,18 +117,19 @@ class _MyDeviceState extends State<MyDevice> {
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              Text(
-                                "Motion: ${fd[index].m}",
-                                style: TextStyle(
-                                    fontSize: 19, color: Colors.white),
-                              ),
-                              Text(
-                                "Time: ${fd[index].t}",
-                                style: TextStyle(
-                                    fontSize: 19, color: Colors.white),
-                              ),
+                              (fd[index].m == "1")
+                                  ? Text(
+                                      "Motion detected",
+                                      style: TextStyle(
+                                          fontSize: 19, color: Colors.white),
+                                    )
+                                  : Text(
+                                      "Motion not detected",
+                                      style: TextStyle(
+                                          fontSize: 19, color: Colors.white),
+                                    ),
                             ],
-                          )
+                          ),
                         ],
                       ),
                     ),

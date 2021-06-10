@@ -65,13 +65,8 @@ class _singupState extends State<singup> {
                 SizedBox(
                   height: 50,
                 ),
-                // Padding(
-                //   padding: EdgeInsets.all(10),
-                //   child: Align(
-                //     alignment: Alignment(0, -0.8),
-                //     child: Image.asset("images/reg.png"), //main image
-                //   ),
-                // ),
+               
+               
 
                 Padding(
                   padding: EdgeInsets.all(24),

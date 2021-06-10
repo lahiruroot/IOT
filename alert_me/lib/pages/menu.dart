@@ -1,9 +1,11 @@
 import 'package:alert_me/external%20pages/device.dart';
 import 'package:alert_me/pages/login.dart';
+import 'package:alert_me/pages/profile.dart';
 import 'package:alert_me/pages/stet_time.dart';
 import 'package:flutter/material.dart';
 import 'package:alert_me/external pages/cards.dart' as Cards;
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 
 class menu extends StatefulWidget {
   @override
@@ -11,6 +13,15 @@ class menu extends StatefulWidget {
 }
 
 class _menuState extends State<menu> {
+  FirebaseAuth auth = FirebaseAuth.instance;
+  String userID;
+  @override
+  void initState() {
+    super.initState();
+    Firebase.initializeApp();
+    userID = auth.currentUser.uid;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,8 +63,8 @@ class _menuState extends State<menu> {
                 leading: Icon(Icons.person),
                 title: Text("Profile"),
                 onTap: () {
-                  // Navigator.push(context,
-                  //     MaterialPageRoute(builder: (context) => profile()));
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => Profile(userID)));
                 }),
             ListTile(
               leading: Icon(Icons.router),
