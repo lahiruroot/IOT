@@ -10,6 +10,7 @@ class SetTime extends StatefulWidget {
 
 class _SetTimeState extends State<SetTime> {
   final date = TextEditingController();
+  final nextdate = TextEditingController();
   final time = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
@@ -18,11 +19,13 @@ class _SetTimeState extends State<SetTime> {
     FirebaseFirestore.instance.collection("timers").doc().set({
       "date": date.text,
       "time": time.text,
+      "nextdate": nextdate.text,
     });
   }
 
   void clearText() {
     date.clear();
+    nextdate.clear();
     time.clear();
   }
 
@@ -34,6 +37,7 @@ class _SetTimeState extends State<SetTime> {
 
   //variables
   String _date;
+  String _nextdate;
   String _time;
 
   @override
@@ -196,12 +200,36 @@ class _SetTimeState extends State<SetTime> {
                               controller: date,
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'Item price is empty';
+                                  return 'This field is requred';
                                 }
                                 return null;
                               },
                               onSaved: (val) {
                                 _date = val;
+                              },
+                            ),
+                            SizedBox(
+                              height: 30,
+                            ),
+                            TextFormField(
+                              cursorColor: Theme.of(context).canvasColor,
+                              cursorWidth: 100,
+                              maxLength: 10,
+                              decoration: InputDecoration(
+                                labelText: 'DD/MM/YYY',
+                                labelStyle: TextStyle(
+                                  color: Colors.green.shade700,
+                                ),
+                              ),
+                              controller: nextdate,
+                              validator: (val) {
+                                if (val.isEmpty) {
+                                  return 'This field is requred';
+                                }
+                                return null;
+                              },
+                              onSaved: (val) {
+                                _nextdate = val;
                               },
                             ),
                             SizedBox(

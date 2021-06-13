@@ -26,7 +26,7 @@ class _menuState extends State<menu> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.indigo[600],
+        backgroundColor: Colors.amber,
         child: Icon(
           Icons.timer,
           size: 25,
