@@ -3,27 +3,27 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class SetTime extends StatefulWidget {
+class setTime1 extends StatefulWidget {
   @override
-  _SetTimeState createState() => _SetTimeState();
+  _setTime1State createState() => _setTime1State();
 }
 
-class _SetTimeState extends State<SetTime> {
-  final date = TextEditingController();
-  final time = TextEditingController();
+class _setTime1State extends State<setTime1> {
+  final devicenic = TextEditingController();
+  final deviceid = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   setTimer() {
     var defoult = Firebase.initializeApp();
-    FirebaseFirestore.instance.collection("timers").doc().set({
-      "date": date.text,
-      "time": time.text,
+    FirebaseFirestore.instance.collection("mydevice").doc().set({
+      "date": devicenic.text,
+      "time": deviceid.text,
     });
   }
 
   void clearText() {
-    date.clear();
-    time.clear();
+    devicenic.clear();
+    deviceid.clear();
   }
 
   @override
@@ -33,8 +33,8 @@ class _SetTimeState extends State<SetTime> {
   }
 
   //variables
-  String _date;
-  String _time;
+  String _devicenic;
+  String _deviceid;
 
   @override
   Widget build(BuildContext context) {
@@ -164,20 +164,20 @@ class _SetTimeState extends State<SetTime> {
                               cursorWidth: 100,
                               maxLength: 10,
                               decoration: InputDecoration(
-                                labelText: 'HH:MM',
+                                labelText: 'Device Nic Name',
                                 labelStyle: TextStyle(
                                   color: Colors.green.shade700,
                                 ),
                               ),
-                              controller: time,
+                              controller: devicenic,
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'Item price is empty';
+                                  return 'Give a device nic name';
                                 }
                                 return null;
                               },
                               onSaved: (val) {
-                                _time = val;
+                                _devicenic = val;
                               },
                             ),
                             SizedBox(
@@ -188,20 +188,20 @@ class _SetTimeState extends State<SetTime> {
                               cursorWidth: 100,
                               maxLength: 10,
                               decoration: InputDecoration(
-                                labelText: 'DD/MM/YYY',
+                                labelText: 'Device ID',
                                 labelStyle: TextStyle(
                                   color: Colors.green.shade700,
                                 ),
                               ),
-                              controller: date,
+                              controller: deviceid,
                               validator: (val) {
                                 if (val.isEmpty) {
-                                  return 'Item price is empty';
+                                  return 'Device ID is requried';
                                 }
                                 return null;
                               },
                               onSaved: (val) {
-                                _date = val;
+                                _deviceid = val;
                               },
                             ),
                             SizedBox(
@@ -234,8 +234,9 @@ class _SetTimeState extends State<SetTime> {
                                     ));
                                   }
                                 },
+                                height: 65,
                                 child: Text(
-                                  'Set timer',
+                                  'Add New Device',
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.white),
                                 ),

@@ -1,6 +1,11 @@
+import 'package:alert_me/pages/stet_time.dart';
+import 'package:alert_me/pages/devicelist.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:get/get.dart';
+
+final _device = TextEditingController();
 
 Widget cardlist(context) {
   var roundedRectangleBorder = RoundedRectangleBorder(
@@ -34,7 +39,8 @@ Widget cardlist(context) {
                 children: [
                   TextButton.icon(
                     onPressed: () {
-                      CreateAlartdialog(context);
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => setTime1()));
                     },
                     icon: Icon(
                       Icons.add,
@@ -86,35 +92,4 @@ Widget cardlist(context) {
       ],
     ),
   );
-}
-
-CreateAlartdialog(BuildContext context) {
-  return showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text("Add Your New Device"),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(15.0),
-          ),
-          content: TextField(
-            decoration: InputDecoration(
-                border: InputBorder.none, hintText: 'Enter Your Device Id'),
-          ),
-          actions: <Widget>[
-            MaterialButton(
-              elevation: 5.0,
-              child: Text('Cancel'),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-            MaterialButton(
-              elevation: 5.0,
-              child: Text('Submit'),
-              onPressed: () {},
-            ),
-          ],
-        );
-      });
 }
