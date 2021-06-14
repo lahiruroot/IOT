@@ -1,5 +1,4 @@
 import 'package:alert_me/pages/login.dart';
-import 'package:alert_me/pages/menu.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -65,8 +64,6 @@ class _singupState extends State<singup> {
                 SizedBox(
                   height: 50,
                 ),
-               
-               
 
                 Padding(
                   padding: EdgeInsets.all(24),

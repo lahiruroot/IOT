@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:get/get.dart';
 
 class Profile extends StatefulWidget {
   String userID;
@@ -17,6 +15,7 @@ class _ProfileState extends State<Profile> {
   _ProfileState(userID) {
     this.userID = userID;
   }
+
   String userID, name, email, phno;
 
   @override
@@ -59,8 +58,41 @@ class _ProfileState extends State<Profile> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Container(
+              height: 150,
+              width: 395,
+              color: Colors.blue,
+              child: Column(
+                children: [
+                  Padding(
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 2.0, horizontal: 10.0),
+                      child: Icon(
+                        Icons.person,
+                        size: 70,
+                      )),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 2.0, horizontal: 10.0),
+                    child: Text(
+                      'Hello',
+                      style: TextStyle(fontSize: 25),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 1.0, horizontal: 10.0),
+                    child: Text(
+                      name,
+                      style:
+                          TextStyle(fontSize: 30, fontStyle: FontStyle.normal),
+                    ),
+                  )
+                ],
+              ),
+            ),
             SizedBox(
-              height: 180,
+              height: 25,
             ),
             Container(
               decoration: BoxDecoration(color: Colors.white, boxShadow: [
@@ -273,6 +305,18 @@ class _ProfileState extends State<Profile> {
                       child: Text('Change')),
                 ],
               ),
+            ),
+            SizedBox(
+              height: 5,
+            ),
+            Container(
+              decoration: BoxDecoration(color: Colors.white, boxShadow: [
+                BoxShadow(
+                    color: Colors.grey.withOpacity(0.8),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: Offset(0, 3))
+              ]),
             ),
           ],
         ),
